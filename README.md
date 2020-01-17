@@ -1,7 +1,7 @@
 # optimal_forager
-Numerical Description of the Marginal Value Theorem
+Numerical Model of the Marginal Value Theorem
 
-A toy model of the marginal value theorem, allowing for changes in parameters like
+Allows for changes in the following parameters
 1. Travel Time
 2. Resource Richness
 
