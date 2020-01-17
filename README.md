@@ -1,7 +1,7 @@
 # optimal_forager
 Numerical Model of the Marginal Value Theorem
 
-Allows for changes in the following parameters
+Can play around with the following parameters
 1. Travel Time
 2. Resource Richness
 
