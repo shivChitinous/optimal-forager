@@ -7,4 +7,4 @@ dependencies:
 - seaborn
 - pandas
 - ipywidgets
-- IPython.display
+- ipython
