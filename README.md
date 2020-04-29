@@ -1,6 +1,8 @@
 # optimal_forager
-__Numerical Model of the Marginal Value Theorem__
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shivChitinous/optimal_forager/master)
+
+__Numerical Model of the Marginal Value Theorem__
+
 
 Can play around with the following parameters
 1. Travel Time
