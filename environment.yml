@@ -6,5 +6,3 @@ dependencies:
 - matplotlib
 - seaborn
 - pandas
-- ipywidgets
-- ipython
