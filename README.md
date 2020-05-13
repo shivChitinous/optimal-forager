@@ -1,5 +1,5 @@
 # optimal-forager
-#### [<sup>GitHub<sup>](https://github.com/shivChitinous/optimal-forager) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shivChitinous/optimal_forager/master) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shivChitinous/optimal_forager/blob/master/Optimal_Foraging_Theory.ipynb#scrollTo=mzQSlPyPiF76)
+#### [<sup>GitHub<sup/>](https://github.com/shivChitinous/optimal-forager) <sup>| [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shivChitinous/optimal_forager/master) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shivChitinous/optimal_forager/blob/master/Optimal_Foraging_Theory.ipynb#scrollTo=mzQSlPyPiF76)
 
 __Numerical Model of the Marginal Value Theorem__
 
