@@ -3,7 +3,7 @@
 
 __Numerical Model of the Marginal Value Theorem__
 
-The model helps visualize the marginal value theorem.
+The model helps visualize and understand the subtleties of the marginal value theorem.
 
 __[Check out model here!](https://shivchitinous.github.io/optimal-forager/Optimal_Foraging_Theory.html)__
 
