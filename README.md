@@ -3,6 +3,7 @@
 
 __Numerical Model of the Marginal Value Theorem__
 
+__[Check out model here!](https://shivchitinous.github.io/optimal-forager/Optimal_Foraging_Theory.html)__
 
 Can play around with the following parameters
 1. Travel Time
