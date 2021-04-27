@@ -1,8 +1,0 @@
-name: virtual_environment
-
-dependencies:
-- python
-- numpy
-- matplotlib
-- seaborn
-- pandas
