@@ -14338,40 +14338,9 @@ description might help the reader develop a better understanding of optimal fora
 <p>Play around with the parameters to see how $\dot I,\ I$ change as a function of time (<em>open with Binder or Google Colab</em>)</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#defining time limit</span>
-<span class="n">t_max</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="c1">#assigning parameters</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#resource richness</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#traveling time</span>
-</pre></div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="n">I_dot</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">T</span><span class="p">)))</span> <span class="c1">#try r*(np.exp(-(t-T)))</span>
-    <span class="n">I_dot</span><span class="p">[</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="n">I_dot</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14379,27 +14348,7 @@ description might help the reader develop a better understanding of optimal fora
 <p>The rate of resource consumption decreases exponentially</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#numerically integrate I_dot to get a curve for cumulative resource consumed over time</span>
-<span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">I_dot</span><span class="p">):</span>
-    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="n">I_p</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">t_max</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
-        <span class="n">dI</span> <span class="o">=</span> <span class="n">I_dot</span><span class="p">[</span><span class="n">t</span><span class="o">==</span><span class="n">inst</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
-        <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">==</span><span class="n">inst</span><span class="p">]</span> <span class="o">=</span> <span class="n">I_p</span> <span class="o">+</span> <span class="n">dI</span>
-        <span class="n">I_p</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">==</span><span class="n">inst</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">I</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14426,25 +14375,7 @@ description might help the reader develop a better understanding of optimal fora
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Comparing-distinct-habitats-each-with-a-single-patch-type">Comparing distinct habitats each with a single patch type<a class="anchor-link" href="#Comparing-distinct-habitats-each-with-a-single-patch-type">&#182;</a></h2>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#defining time limit</span>
-<span class="n">t_max</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="c1">#assigning paramaeters</span>
-<span class="n">r_a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">r_b</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#greater resource richness</span>
-<span class="n">T_a</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">T_b</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14453,24 +14384,7 @@ description might help the reader develop a better understanding of optimal fora
 <p><em>Can you figure out which is resource poor and which is resource rich?</em></p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Now numerically integrate both patches and get optimal exit times</span>
-<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span><span class="n">t_max</span><span class="p">,</span><span class="n">I_dot_a</span><span class="p">);</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span><span class="n">t_max</span><span class="p">,</span><span class="n">I_dot_b</span><span class="p">);</span>
-<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I/t_a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_a&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
-<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I/t_b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_b&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
-<span class="n">t_opt_a</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">][(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_dot_a&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I/t_a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">T_a</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">t_opt_b</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">][(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I_dot_b&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;I/t_b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">T_b</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
