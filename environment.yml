@@ -1,8 +1,8 @@
 name: environment
 dependencies:
+  - python=3.9.1
   - scipy
   - pandas
   - seaborn
   - numpy
   - matplotlib
-  - Pillow
