@@ -5,3 +5,4 @@ dependencies:
   - seaborn
   - numpy
   - matplotlib
+  - Pillow
